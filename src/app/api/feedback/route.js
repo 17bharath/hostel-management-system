@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { initializeDatabase, getDatabase } from '@/lib/database';
+import { initializeDatabase, getDatabase } from '@/lib/database-factory';
 
 // Initialize database on module load
 initializeDatabase();

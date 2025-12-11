@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getDatabase } from '@/lib/database';
+import { getDatabase } from '@/lib/database-factory';
 
 export async function PUT(req, { params }) {
     try {
