@@ -13,7 +13,7 @@ function initializeDatabase() {
         console.log('Initializing in-memory database for Vercel deployment');
         return initMemory();
     } else {
-        console.log('Initializing SQLite database for local development');
+        console.log('Initializing 123 SQLite database for local development');
         return initSQLite();
     }
 }
