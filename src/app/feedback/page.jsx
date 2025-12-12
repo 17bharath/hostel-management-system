@@ -41,6 +41,24 @@ export default function FeedbackPage() {
         const data = await res.json();
         setMsg(data.message || "Feedback submitted ✅");
 
+        // Trigger printing after successful form submission
+        try {
+            const printResponse = await fetch("/api/printer", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ text: "form submit successfully" }),
+            });
+
+            const printResult = await printResponse.json();
+            if (!printResponse.ok) {
+                console.error("Print job failed:", printResult.error);
+            } else {
+                console.log("Print job status:", printResult.message);
+            }
+        } catch (printError) {
+            console.error("Error triggering print job:", printError);
+        }
+
         form.reset();
         setCategory("");
         setRating(0);
